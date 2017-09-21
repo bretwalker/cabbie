@@ -1,0 +1,16 @@
+<html>
+
+<body>
+
+{% for driver in drivers %}
+	{{ driver }}<br>
+		<ul>
+		{% for description in driver.descriptions.all %}
+			<li> {{ description }} </li>
+		{% endfor %}
+		</ul>
+{% endfor %}
+
+</body>
+
+</html>

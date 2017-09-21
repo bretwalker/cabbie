@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-# Create your views here.
+from .models import Description, Driver
+
+def driver_list(request):
+	drivers = Driver.objects.all()
+	#drivers = Driver.objects.prefetch_related('descriptions').all()
+	return render(
+		request, 
+		'drivers/driver_list.html', 
+		{'drivers': drivers},
+	)
